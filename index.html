@@ -184,11 +184,11 @@ body { padding-top: 44px; }
 .nav-item.active .ni-check { opacity: 1; }
 
 /* ── View visibility ─────────────────────────────── */
-#diagnostico-view { display: block; }
+#diagnostico-view { display: none; }
 #demo-view    { display: none; }
 #informe-view { display: none;  }
 #informe-view.visible { display: block; }
-#dashboard-view { display: none; }
+#dashboard-view { display: block; }
 
 </style>
 <style>
@@ -1655,29 +1655,29 @@ footer {
 <nav id="top-nav">
   <div class="nav-dropdown" id="navDropdown">
     <div class="nav-trigger" id="navTrigger" onclick="toggleNav(event)">
-      <span id="navIcon">🧠</span>
-      <span id="navLabel">Demo · Diagnóstico Inteligente</span>
+      <span id="navIcon">📈</span>
+      <span id="navLabel">Dashboard diagnóstico con movimientos</span>
       <span class="nav-arrow">▼</span>
     </div>
     <div class="nav-menu">
-      <div class="nav-item active" id="navItem0" onclick="switchView('diagnostico')">
+      <div class="nav-item active" id="navItem0" onclick="switchView('dashboard')">
+        <span class="ni-icon">📈</span>
+        <span class="ni-label">Dashboard diagnóstico con movimientos</span>
+        <span class="ni-check">✓</span>
+      </div>
+      <div class="nav-item" id="navItem1" onclick="switchView('diagnostico')">
         <span class="ni-icon">🧠</span>
         <span class="ni-label">Demo · Diagnóstico Inteligente</span>
         <span class="ni-check">✓</span>
       </div>
-      <div class="nav-item" id="navItem1" onclick="switchView('demo')">
+      <div class="nav-item" id="navItem2" onclick="switchView('demo')">
         <span class="ni-icon">🖥️</span>
         <span class="ni-label">Demo · Casos de uso</span>
         <span class="ni-check">✓</span>
       </div>
-      <div class="nav-item" id="navItem2" onclick="switchView('informe')">
+      <div class="nav-item" id="navItem3" onclick="switchView('informe')">
         <span class="ni-icon">📋</span>
         <span class="ni-label">Informe de evaluación</span>
-        <span class="ni-check">✓</span>
-      </div>
-      <div class="nav-item" id="navItem3" onclick="switchView('dashboard')">
-        <span class="ni-icon">📈</span>
-        <span class="ni-label">Dashboard diagnóstico con movimientos</span>
         <span class="ni-check">✓</span>
       </div>
     </div>
@@ -6095,23 +6095,23 @@ function switchView(view) {
     document.getElementById('diagnostico-view').style.display = 'block';
     document.getElementById('navIcon').textContent  = '🧠';
     document.getElementById('navLabel').textContent = 'Demo · Diagnóstico Inteligente';
-    document.getElementById('navItem0').classList.add('active');
+    document.getElementById('navItem1').classList.add('active');
   } else if (view === 'demo') {
     document.getElementById('demo-view').style.display = 'block';
     document.getElementById('navIcon').textContent  = '🖥️';
     document.getElementById('navLabel').textContent = 'Demo · Casos de uso';
-    document.getElementById('navItem1').classList.add('active');
+    document.getElementById('navItem2').classList.add('active');
   } else if (view === 'informe') {
     document.getElementById('informe-view').style.display = 'block';
     document.getElementById('informe-view').classList.add('visible');
     document.getElementById('navIcon').textContent  = '📋';
     document.getElementById('navLabel').textContent = 'Informe de evaluación';
-    document.getElementById('navItem2').classList.add('active');
+    document.getElementById('navItem3').classList.add('active');
   } else {
     document.getElementById('dashboard-view').style.display = 'block';
     document.getElementById('navIcon').textContent  = '📈';
     document.getElementById('navLabel').textContent = 'Dashboard diagnóstico con movimientos';
-    document.getElementById('navItem3').classList.add('active');
+    document.getElementById('navItem0').classList.add('active');
   }
   window.scrollTo(0, 0);
 }
